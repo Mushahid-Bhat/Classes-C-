@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+class point{
+
+    float meter,km;
+
+    public:point():meter(0),km(0){
+
+}
+
+void getdata(){
+
+    cout<<"enter meter and km"<<endl;
+
+    cin>>meter>>km;
+
+}
+
+point sum(point a,point b){
+
+    point temp;
+
+    temp.meter=a.meter+b.meter;
+
+    temp.km=a.km+b.km;
+
+    if(temp.meter>1000){
+
+        temp.km=temp.km+(temp.meter-1000)/1000;
+
+        temp.meter=temp.meter-(temp.meter-1000);
+
+    }
+
+    return temp;
+
+}
+
+void display(){
+
+   cout<<"the coordinates of required point"<<"("<< meter<<"meter"<<","<< km<<"km"<<")";
+
+}
+
+};
+
+int main() {
+
+   point a,b,c;
+
+   a.getdata();
+
+   b.getdata();
+
+   point d=c.sum(a,b);
+
+   d.display();
+
+    return 0;
+
+}
